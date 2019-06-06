@@ -1,20 +1,39 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Account {
-	
-	//This class needs to have:
-	//An id
-	//An Account Number
-	//A First Name
-	//A last Name
-	
-	private String firstName;
-	private String lastName;
+    
+	@Id @GeneratedValue (strategy = GenerationType.AUTO)
+	private int id;
+	@Column (length = 20)
 	private int accountNumber;
-	
-	public Account(String firstName, String lastName, int accountNumber) {
+    @Column (length = 50)
+	private String firstName;
+    @Column (length = 50)
+	private String lastName;
+	private static int counter = 1;
+
+	public Account(int accountNumber, int id, String firstName, String lastName) {
+		this.id = id;
+		this.accountNumber = accountNumber;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		
+	}
+
+	
+
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
@@ -34,16 +53,12 @@ public class Account {
 		this.lastName = lastName;
 	}
 
-	public int getAccountNumber() {
-		return accountNumber;
+	public int getId() {
+		return id;
 	}
 
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Account [firstName=" + firstName + ", lastName=" + lastName + ", accountNumber=" + accountNumber + "]";
-	}
 }

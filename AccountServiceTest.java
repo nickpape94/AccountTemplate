@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.qa.persistence.domain.Account;
@@ -48,7 +47,6 @@ public class AccountServiceTest {
 		assertEquals("Account not created", "Account added", amp.createAccount(acc2String));
 	}
 
-	@Ignore
 	@Test
 	public void removeAccountTest() {
 		Account acc = new Account(5, 1234, "John", "Smith");
@@ -60,7 +58,6 @@ public class AccountServiceTest {
 		assertEquals("Account not removed", "Account deleted", amp.deleteAccount(accountNumber));
 	}
 
-	@Ignore
 	@Test
 	public void remove2AccountsTest() {
 		Account acc1 = new Account(6, 1234, "John", "Smith");
@@ -79,25 +76,32 @@ public class AccountServiceTest {
 		assertEquals("Account not removed", "Account deleted", amp.deleteAccount(accNo2));
 
 	}
-
+	
 	@Test
-	public void accountsByFirstName() {
-
-		// String firstName
-
-		// create an account
+	public void accountsByFirstName (String firstName) {
+		
+		//create an account
 		Account acc1 = new Account(8, 123, "John", "Smith");
 		Account acc2 = new Account(9, 456, "Joe", "Smo");
 		Account acc3 = new Account(10, 123, "John", "Doe");
-		Account acc4 = new Account(11, 908, "Nick", "Smoefv");
-
-		// add to map
+		Account acc4 = new Account(11, 908,"Nick", "Smoefv");
+		
+		
+		//add to map
 		Map<Integer, Account> accountMap = new HashMap<Integer, Account>();
 		accountMap.put(1, acc1);
 		accountMap.put(2, acc2);
 		accountMap.put(3, acc3);
 		accountMap.put(4, acc4);
+	
+	
+	
 
-	}
 
+
+
+	
+
+}
+	
 }
